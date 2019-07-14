@@ -1,47 +1,60 @@
-let validation;
 
-let num_1 = prompt('Введите первое число', '');
-num_1 = +num_1;
+let middleAge = 0;
+let numberDirectors = 0;
 
-mas(num_1);
+films.forEach(function(film){
+	 if (film.director.oscarsCount === 0) {
+	 	middleAge = film.actors.reduce(function(age,actor){
+	 	numberDirectors = numberDirectors + 1;
+	 	return age + actor.age;
 
-let operant = prompt('Введите арифмитический оператор', '');
+	 }, middleAge);
 
-let num_2 = prompt('Введите второе число', '');
-num_2 = +num_2;
+	 }
+});
+console.log('Средний возраст актеров - ' + Math.round(middleAge/numberDirectors) + ' лет')
 
-mas(num_2);
+console.log(" ")
 
-if (operant == '+') {
-	res = num_1 + num_2;
-} else if (operant == '-'){
-	res = num_1 - num_2;
-	} else if (operant == '*') {
-		res = num_1 * num_2;
-	} else  {
-		res = num_1 / num_2;
-	}
-
-var result = num_1 +''+ operant +''+ num_2 +''+ '='+res;
-
-alert(result);
-
-function mas(validation) {
-	validation = +validation;
-	let  i = false;
-	do {
-	if (validation != +validation) { 
-		 validation = prompt('Это не число! Введите число', '');
-	
-		} else {
-			i = true;
-			return validation;
-			
-			
-			
-}} while (i = true);
-
+const actorName = [];
+function Tom(actor) {
+  return actor.name === 'Tom Hanks';
 }
-	
+let actorNames = "";
+let actorObject = "";
+let namesObject = "";
 
+films.forEach(function(names){
+	if (names.creationYear > 1995 && names.actors.some(Tom)){
+	actorNames = actorName.concat(names.actors);
+	for (let key in names.actors) {
+		actorObject = names.actors[key];
+		namesObject = actorObject.name;
+		if (namesObject != 'Tom Hanks') {
+		actorName.push(namesObject);
+		};
+	}
+};
+});
+const actorNameLine = actorName.join('\n');
+console.log(actorNameLine);
 
+console.log(" ")
+
+let budget = 0;
+let currency = ' ';
+let currencyDel = "";
+let budgetArray = [];
+let budgetSum = 0;
+
+films.forEach(function(money) {
+	if (money.director.age < 70 && money.actors.some(Tom) == false) {
+		currency = money.budget.indexOf("$");
+		currency = currency + 1
+		currencyDel = money.budget.substring(currency);
+		budgetArray = currencyDel.split(' ');
+		budgetSum = budgetArray.join('');
+		budget = budget + +budgetSum;
+	}
+	});
+console.log('Общий бюджет фильмов ' + budget);
