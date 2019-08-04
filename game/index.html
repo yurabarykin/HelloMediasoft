@@ -1,16 +1,32 @@
 <!DOCTYPE>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="utf-8">
 	<title>GAME</title>
  <script defer src="script.js" charset="utf-8"></script> 
 </head>	
 <body>
+	<style>
+	.block {
+		width: 150px;
+		height: 150px;
+		border: 1px solid #fff;
+		box-sizing: border-box;;
+	}
+	.zero {
+		background-image: url(zero.svg);
+		background-repeat: no-repeat;
+		background-position: 7px 7px;
+		background-size: 90%
+	}
+	.cross {
+		background-image: url(cross.svg);
+		background-repeat: no-repeat;
+		background-position: 7px 7px;
+		background-size: 90%
+	}
+	</style>
 <h1>Крестики нолики</h1>
 	<div id="CrossZero"></div>
-<h1>Пятнашки</h1>
-	<div id="Fifteen"></div>
-<h1>Шахматы</h1>
-	<div id="Сhess"></div>
 </body>
 </html>
